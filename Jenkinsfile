@@ -18,7 +18,7 @@ pipeline {
           sh 'export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID'
           sh 'export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY'
           sh 'echo "Successfully authenticated with AWS"'
-          sh 'cd Terraform && terraform destroy --auto-approve'
+          sh 'cd Terraform && terraform destroy -var="access_key=$AWS_ACCESS_KEY_ID" -var="secret_key=$AWS_SECRET_ACCESS_KEY" -auto-approve'
         }
       }
     }

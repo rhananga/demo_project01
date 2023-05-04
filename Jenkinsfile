@@ -30,7 +30,8 @@ pipeline {
     
     stage('Terraform Plan') {
       steps {
-        sh 'cd Terraform && terraform plan'
+        sh 'cd Terraform'
+        sh 'terraform plan -var="access_key=$AWS_ACCESS_KEY_ID" -var="secret_key=$AWS_SECRET_ACCESS_KEY" -auto-approve'
       }
     }
     

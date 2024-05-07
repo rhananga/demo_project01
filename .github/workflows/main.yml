@@ -47,6 +47,7 @@ jobs:
           terraform fmt -check
         working-directory: ./Terraform
 
+      # Running Terraform Apply
       - name: Terraform apply
         id: apply
         run: |-

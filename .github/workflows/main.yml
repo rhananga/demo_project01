@@ -47,6 +47,13 @@ jobs:
           terraform fmt -check
         working-directory: ./Terraform
 
+      - name: Terraform apply
+        id: apply
+        run: |-
+          terraform apply \
+          -auto-approve
+        working-directory: ./Terraform
+
       # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
         run: |

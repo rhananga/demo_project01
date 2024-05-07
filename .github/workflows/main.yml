@@ -48,10 +48,10 @@ jobs:
         working-directory: ./Terraform
 
       # Running Terraform Apply
-      - name: Terraform apply
-        id: apply
+      - name: Terraform destroy
+        id: destroy
         run: |-
-          terraform apply \
+          terraform destroy \
           -auto-approve
         working-directory: ./Terraform
 

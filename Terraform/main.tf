@@ -6,7 +6,7 @@ provider "aws" {
   #secret_key = var.secret_key
 }
 
-# main.tf
+# main.tf testing AWS authentication with OIDC
 resource "aws_vpc" "testvpc" {
   cidr_block = "10.0.0.0/16"
 }

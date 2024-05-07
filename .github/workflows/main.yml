@@ -30,6 +30,22 @@ jobs:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }} #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_wrapper: false
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ./Terraform
+
+      - name: Terraform Format
+        run: | -
+          terraform fmt -recursive
+          terraform fmt -check
+
       # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
         run: |
